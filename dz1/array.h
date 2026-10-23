@@ -35,7 +35,7 @@ public:
 		a.arr = nullptr;
 	}
 
-	~Array() {cap = 0; len = 0; delete [] arr; arr = nullptr;}
+	~Array() {delete [] arr; arr = nullptr;}
 
 	Array &operator=(const Array &a) {
 		if (this != &a) {
@@ -69,9 +69,10 @@ public:
 
 	int getCap() const {return cap;}
 	int getLen() const {return len;}
+	void print() const;
 
 	void readStd();
-	void readFile();
+	void readFile(const char *);
 
 	int add(int);
 	int remove(int);
