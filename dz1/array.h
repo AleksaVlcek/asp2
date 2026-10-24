@@ -22,10 +22,13 @@ private:
 		delete [] arr;
 		arr = newArr;
 		cap = newCap;
-	}	
+	}
+
+	void reset(int c);
+	void pushUnique(int key);
 
 public:
-	Array(int c = 10) : cap(c), len(0), arr(new int[cap]) {}
+	Array(int c = 10) : cap(c > 0 ? c : 0), len(0), arr(new int[cap]) {}
 	Array(const Array &a) : cap(a.cap), len(a.len), arr(new int[a.cap]) {
 		copy(a);
 	}
@@ -72,7 +75,7 @@ public:
 	void print() const;
 
 	void readStd();
-	void readFile(const char *);
+	bool readFile(const char *);
 
 	int add(int);
 	int remove(int);
@@ -80,5 +83,5 @@ public:
 	int search(int);
 };
 
-#endif // ARRAY_H
+#endif
 
